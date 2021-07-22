@@ -1,12 +1,11 @@
 package org.id2k1149.controllers;
 
 import org.id2k1149.dao.PersonDAO;
+import org.id2k1149.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/persons")
@@ -31,4 +30,25 @@ public class PersonsController {
         model.addAttribute("person", personDAO.showPerson(id));
         return "persons/person";
     }
+
+    // Form for new Person #1
+    @GetMapping("/new1")
+    public String newPerson1(Model model) {
+        model.addAttribute("person", new Person());
+        return "persons/new1";
+    }
+
+    // Form for new Person #2
+    @GetMapping("/new2")
+    public String newPerson2(@ModelAttribute("person") Person person) {
+        return "persons/new2";
+    }
+
+    // create new Person
+    @PostMapping()
+    public String create(@ModelAttribute("person") Person person) {
+        personDAO.save(person);
+        return "redirect:/persons";
+    }
+
 }
