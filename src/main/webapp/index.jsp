@@ -1,5 +1,6 @@
 <html>
 <body>
-<h2>Hello World!</h2>
+<h2>SURVEY</h2>
+<a href="${pageContext.request.contextPath}/hello-world">hi</a>
 </body>
 </html>
