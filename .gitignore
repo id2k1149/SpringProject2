@@ -5,4 +5,5 @@
 /.idea/vcs.xml
 /target
 /.idea
+/patches/
 /patches/v02_requests.patch
