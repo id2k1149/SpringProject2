@@ -10,9 +10,14 @@ public class Person {
     @Size(min = 3, max = 8, message = "Name should be between 3 and 8 characters")
     private String name;
 
-    public Person(int id, String name) {
+    @NotEmpty(message = "Password should not be empty")
+    @Size(min = 3, max = 8, message = "Password should be between 3 and 8 characters")
+    private String password;
+
+    public Person(int id, String name, String password) {
         this.id = id;
         this.name = name;
+        this.password = password;
     }
 
     public Person() {
@@ -35,5 +40,11 @@ public class Person {
         this.name = name;
     }
 
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
