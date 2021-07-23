@@ -16,6 +16,15 @@
          th:errors="*{name}">
         Name Error
     </div>
+
+    <label for="pass_id"> Edit name: </label>
+    <input type="text"
+           th:field="*{password}" id="pass_id"/>
+    <div style="color:red"
+         th:if="${#fields.hasErrors('name')}"
+         th:errors="*{password}">
+        Password Error
+    </div>
     <br/>
     <input type="submit" value="Update person"/>
 </form>
